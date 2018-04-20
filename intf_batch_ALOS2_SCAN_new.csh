@@ -233,15 +233,15 @@ if ($stage <= 2) then
         if ($shift_topo == 1) then
           ln -s ../../topo/topo_shift.grd .
           intf.csh IMG-HH-$ref-F$subswath.PRM IMG-HH-$rep-F$subswath.PRM -topo topo_shift.grd
-          filter.csh IMG-HH-$ref-F$subswath.PRM IMG-HH-$rep-F$subswath.PRM $filter $dec 2 8
+          filter_alos.csh IMG-HH-$ref-F$subswath.PRM IMG-HH-$rep-F$subswath.PRM $filter $dec 2 8
         else
           ln -s ../../topo/topo_ra.grd .
           intf.csh IMG-HH-$ref-F$subswath.PRM IMG-HH-$rep-F$subswath.PRM -topo topo_ra.grd
-          filter.csh IMG-HH-$ref-F$subswath.PRM IMG-HH-$rep-F$subswath.PRM $filter $dec 2 8
+          filter_alos.csh IMG-HH-$ref-F$subswath.PRM IMG-HH-$rep-F$subswath.PRM $filter $dec 2 8
         endif
       else
         intf.csh IMG-HH-$ref-F$subswath.PRM IMG-HH-$rep-F$subswath.PRM
-        filter.csh IMG-HH-$ref-F$subswath.PRM IMG-HH-$rep-F$subswath.PRM $filter $dec 2 8
+        filter_alos.csh IMG-HH-$ref-F$subswath.PRM IMG-HH-$rep-F$subswath.PRM $filter $dec 2 8
       endif
     endif
     echo "INTF.CSH, FILTER.CSH - END"

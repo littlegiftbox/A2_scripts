@@ -25,7 +25,7 @@
 #
 # loop over 5 subswath
 # 
-  foreach subswath (1 2 3 4 5)
+  foreach subswath (1)
   mkdir -p F$subswath 
   cd F$subswath
   ln -s ../$1 .

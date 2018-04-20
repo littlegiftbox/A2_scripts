@@ -19,9 +19,9 @@ unset noclobber
 #
 # check the number of arguments 
 # 
-  if ($#argv != 2) then 
+  if ($#argv != 3) then
     echo ""
-    echo "Usage: pre_proc_batch_ALOS2_SCAN.csh data.in batch.config"
+    echo "Usage: pre_proc_batch_ALOS2_SCAN.csh data.in batch.config subswath"
     echo "       preprocess a set of images using a common radius"
     echo "       preprocess all 5 subswaths "
     echo ""
@@ -33,7 +33,7 @@ unset noclobber
     echo "         IMG-HH-ALOS2047473650-150410-WBDR1.1__D"
     echo "         IMG-HH-ALOS2101293650-160408-WBDR1.1__D"
     echo ""
-    echo "Example: pre_proc_batch_ALOS2_SCAN.csh data.in batch.config"
+    echo "Example: pre_proc_batch_ALOS2_SCAN.csh data.in batch.config 1"
     echo ""
     exit 1
   endif
@@ -41,6 +41,7 @@ unset noclobber
 #
 # read parameters from configuration file
 #
+  set subswath=$3
 
   set earth_radius = `grep earth_radius $2 | awk '{print $3}'`
   set SLC_factor = `grep SLC_factor $2 | awk '{print $3}'`
@@ -55,6 +56,7 @@ unset noclobber
 
   echo $commandline
 
+
 #
 # open and read data.in table 
 #
@@ -67,8 +69,8 @@ unset noclobber
 
 #
 # loop over 5 subswath
-#
-  foreach subswath (1 2 3 4 5)
+# try one first
+# foreach subswath (1 2 3 4 5)
 #
 # unpack the master if necessary
 #
@@ -128,7 +130,9 @@ unset noclobber
   end
 
 # end of the loop over subswath 
-  end
+#  end
+
+
 #
 # make baseline plots
 #

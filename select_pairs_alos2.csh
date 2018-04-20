@@ -50,7 +50,7 @@
         set db0 = `echo $b1 $b2 | awk '{printf "%d", sqrt(($1-$2)*($1-$2))}'`
         if ($db0 < $db) then
           echo $nn1 $nn2 | awk '{print $1":"$2}' >> intf.in
-          echo $nn1 $nn2 $master | awk '{print $1":"$2":"$3}' >> align.in
+     #echo $master $nn1 $master | awk '{print $1":"$2":"$3}' >> align.in
           echo $t1 $b1 | awk '{print $1/365.25+2014, $2}' >> tmp
           echo $t2 $b2 | awk '{print $1/365.25+2014, $2}' >> tmp
           gmt psxy tmp -R -J -K -O >> baseline.ps
